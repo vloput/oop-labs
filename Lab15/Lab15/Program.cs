@@ -126,7 +126,24 @@ namespace Lab15
 
             #endregion
 
+            #region Task 5: Smth with timers
 
+            Thread.Sleep(4000);
+            Console.WriteLine("\nPress any key");
+            Console.ReadKey();
+
+            TimerCallback timerCallback = new TimerCallback(WhatTimeIsIt);
+
+            Timer timer = new Timer(timerCallback, null, 0, 1000);
+
+            Thread.Sleep(5000);
+            
+            void WhatTimeIsIt(object obj)
+            {
+                Console.WriteLine($"It's {DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}");
+            }
+
+            #endregion
         }
     }
 }
